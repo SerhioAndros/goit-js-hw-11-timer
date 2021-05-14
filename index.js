@@ -11,15 +11,17 @@ class CountdownTimer {
     this.intervalId = null;
   }
 
-  padDate(num) {
-    String(num).padStart(2, 0);
-  }
-
   render(days, hours, mins, secs) {
     this.refs.timer.querySelector("[data-value='days']").textContent = days;
-    this.refs.timer.querySelector("[data-value='hours']").textContent = hours;
-    this.refs.timer.querySelector("[data-value='mins']").textContent = mins;
-    this.refs.timer.querySelector("[data-value='secs']").textContent = secs;
+    this.refs.timer.querySelector("[data-value='hours']").textContent = String(
+      hours
+    ).padStart(2, 0);
+    this.refs.timer.querySelector("[data-value='mins']").textContent = String(
+      mins
+    ).padStart(2, 0);
+    this.refs.timer.querySelector("[data-value='secs']").textContent = String(
+      secs
+    ).padStart(2, 0);
   }
 
   startCountdown() {
@@ -42,6 +44,11 @@ class CountdownTimer {
       const mins = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const secs = Math.floor((timeLeft % (1000 * 60)) / 1000);
       this.render(days, hours, mins, secs);
+      if (timeLeft <= 0) {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+        this.render("0", "00", "00", "00");
+      }
     }, 1000);
   }
 }

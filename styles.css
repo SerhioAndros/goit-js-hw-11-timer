@@ -19,7 +19,7 @@ form {
 
 .timer {
   margin: auto;
-  width: 25%;
+  width: 35%;
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
@@ -28,11 +28,17 @@ form {
 .value {
   color: blueviolet;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: xx-large;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 1.62;
+  text-align: center;
 }
 
 .label {
   color: olive;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: medium;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 1.62;
+  text-align: center;
 }
